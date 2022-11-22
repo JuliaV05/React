@@ -6,7 +6,7 @@ import {
   updateFavoritePokemon,
 } from './services/pokedexService';
 
-import pokemonList fom './data';
+import pokemonList from './data';
 import Routes from './routes';
 
 import './App.css';
