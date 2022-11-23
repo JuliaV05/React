@@ -2,7 +2,7 @@ import { screen } from '@testing-library/react';
 import { About } from '../pages';
 import renderWithRouter from '../renderWithRouter';
 
-describe.only('Testing About component', () => {
+describe('Testing About component', () => {
   it('checks if the page contains two paragraphs with information about Pokédex', () => {
     renderWithRouter(<About />);
 
@@ -29,7 +29,6 @@ describe.only('Testing About component', () => {
     const img = screen.getByRole('img', {
       src: 'https://cdn2.bulbagarden.net/upload/thumb/8/86/Gen_I_Pok%C3%A9dex.png/800px-Gen_I_Pok%C3%A9dex.png',
     });
-
-    expect(img).toHaveAttribute('src');
+    expect(img).toHaveAttribute('src', 'https://cdn2.bulbagarden.net/upload/thumb/8/86/Gen_I_Pok%C3%A9dex.png/800px-Gen_I_Pok%C3%A9dex.png');
   });
 });
