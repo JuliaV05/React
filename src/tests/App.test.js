@@ -6,11 +6,11 @@ import { act } from 'react-dom/test-utils';
 import App from '../App';
 import renderWithRouter from '../renderWithRouter';
 
-describe('Verifica se o topo da aplicação contém um conjunto fixo de links de navegação...', () => {
-  test('testa se o primeiro link possui o texto "Home"', () => {
+describe('Checks if the top of the application contains a fixed set of navigation links...', () => {
+  test('tests if the first link has the text "Home"', () => {
     const history = createMemoryHistory();
 
-    //   Acessar
+    //   Access
     render(
       <Router history={ history }>
         <App />
@@ -20,13 +20,13 @@ describe('Verifica se o topo da aplicação contém um conjunto fixo de links de
       name: /home/i,
     });
 
-    // Aferir
+    // Check
     expect(linkEl1).toBeInTheDocument();
   });
 
-  test('testa se o segundo link possui o texto "About"', () => {
+  test('tests if the second link has the text "About"', () => {
     const history = createMemoryHistory();
-    //   Acessar
+    //   Access
     render(
       <Router history={ history }>
         <App />
@@ -35,13 +35,13 @@ describe('Verifica se o topo da aplicação contém um conjunto fixo de links de
     const linkEl2 = screen.getByRole('link', {
       name: /about/i,
     });
-    // Aferir
+    // Check
     expect(linkEl2).toBeInTheDocument();
   });
 
-  test('testa se o terceiro link possui o texto "Favorite Pokémon"', () => {
+  test('tests if the third link has the text "Favorite Pokémon"', () => {
     const history = createMemoryHistory();
-    //   Acessar
+    //   Access
     render(
       <Router history={ history }>
         <App />
@@ -50,64 +50,64 @@ describe('Verifica se o topo da aplicação contém um conjunto fixo de links de
     const linkEl3 = screen.getByRole('link', {
       name: /favorite pokémon/i,
     });
-      // Aferir
+      // Check
     expect(linkEl3).toBeInTheDocument();
   });
 });
 
-describe('Verifica se a aplicação é redirecionada para as páginas certas', () => {
-  test('testa se aplicação é redirecionada para a página inicial, ao clicar no link "Home"', () => {
+describe('Checks that the application is redirected to the right pages', () => {
+  test('tests if the application is redirected to the homepage, when clicking on the "Home" link', () => {
     const { history } = renderWithRouter(<App />);
-    // Acessar
+    // Access
     const catchHome = screen.getByRole('link', {
       name: /home/i,
     });
 
-    // Agir
+    // Act
     userEvent.click(catchHome);
     const { location: { pathname } } = history;
 
-    // Aferir
+    // Check
     expect(catchHome).toBeInTheDocument();
     expect(pathname).toBe('/');
   });
 
-  test('testa se aplicação é redirecionada para a página de "About" ao clicar no link "About"', () => {
+  test('tests if the application is redirected to the "About" page, when clicking on the "About" link', () => {
     const { history } = renderWithRouter(<App />);
 
-    // Acessar
+    // Access
     const catchAbout = screen.getByRole('link', {
       name: /about/i,
     });
 
-    // Agir
+    // Act
     userEvent.click(catchAbout);
     const { location: { pathname } } = history;
 
-    // Aferir
+    // Check
     expect(catchAbout).toBeInTheDocument();
     expect(pathname).toBe('/about');
   });
 
-  test('testa se aplicação é redirecionada para a página de "Pokémon Favoritados" ao clicar no link "Favorite Pokémon"', () => {
+  test('tests if the application is redirected to the "Favorite Pokémon" page, when clicking on the "Favorite Pokémon" link', () => {
     const { history } = renderWithRouter(<App />);
 
-    // Acessar
+    // Access
     const catchFavorites = screen.getByRole('link', {
       name: /favorite pokémon/i,
     });
 
-    // Agir
+    // Act
     userEvent.click(catchFavorites);
     const { location: { pathname } } = history;
 
-    // Aferir
+    // Check
     expect(catchFavorites).toBeInTheDocument();
     expect(pathname).toBe('/favorites');
   });
 
-  test('testa se a aplicação é redirecionada para a página "Not Found", ao entrar numa URL desconhecida', () => {
-    // Acessar
+  test('tests if the application is redirected to the "Not Found" page, when entering an unknown URL', () => {
+    // Access
     const { history } = renderWithRouter(<App />);
     act(() => { history.push('/not found'); });
 
