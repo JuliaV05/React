@@ -7,7 +7,7 @@ import App from '../App';
 import renderWithRouter from '../renderWithRouter';
 
 describe('Checks if the top of the application contains a fixed set of navigation links...', () => {
-  test('tests if the first link has the text "Home"', () => {
+  it('tests if the first link has the text "Home"', () => {
     const history = createMemoryHistory();
 
     //   Access
@@ -24,7 +24,7 @@ describe('Checks if the top of the application contains a fixed set of navigatio
     expect(linkEl1).toBeInTheDocument();
   });
 
-  test('tests if the second link has the text "About"', () => {
+  it('tests if the second link has the text "About"', () => {
     const history = createMemoryHistory();
     //   Access
     render(
@@ -39,7 +39,7 @@ describe('Checks if the top of the application contains a fixed set of navigatio
     expect(linkEl2).toBeInTheDocument();
   });
 
-  test('tests if the third link has the text "Favorite Pokémon"', () => {
+  it('tests if the third link has the text "Favorite Pokémon"', () => {
     const history = createMemoryHistory();
     //   Access
     render(
@@ -56,7 +56,7 @@ describe('Checks if the top of the application contains a fixed set of navigatio
 });
 
 describe('Checks that the application is redirected to the right pages', () => {
-  test('tests if the application is redirected to the homepage, when clicking on the "Home" link', () => {
+  it('tests if the application is redirected to the homepage, when clicking on the "Home" link', () => {
     const { history } = renderWithRouter(<App />);
     // Access
     const catchHome = screen.getByRole('link', {
@@ -72,7 +72,7 @@ describe('Checks that the application is redirected to the right pages', () => {
     expect(pathname).toBe('/');
   });
 
-  test('tests if the application is redirected to the "About" page, when clicking on the "About" link', () => {
+  it('tests if the application is redirected to the "About" page, when clicking on the "About" link', () => {
     const { history } = renderWithRouter(<App />);
 
     // Access
@@ -89,7 +89,7 @@ describe('Checks that the application is redirected to the right pages', () => {
     expect(pathname).toBe('/about');
   });
 
-  test('tests if the application is redirected to the "Favorite Pokémon" page, when clicking on the "Favorite Pokémon" link', () => {
+  it('tests if the application is redirected to the "Favorite Pokémon" page, when clicking on the "Favorite Pokémon" link', () => {
     const { history } = renderWithRouter(<App />);
 
     // Access
@@ -106,7 +106,7 @@ describe('Checks that the application is redirected to the right pages', () => {
     expect(pathname).toBe('/favorites');
   });
 
-  test('tests if the application is redirected to the "Not Found" page, when entering an unknown URL', () => {
+  it('tests if the application is redirected to the "Not Found" page, when entering an unknown URL', () => {
     // Access
     const { history } = renderWithRouter(<App />);
     act(() => { history.push('/not found'); });
