@@ -13,7 +13,7 @@ class Pokemon extends React.Component {
     const { measurementUnit, value } = averageWeight;
 
     return (
-      <div className="pokemon">
+      <div className="pokemon" >
         <div className="pokemon-overview">
           <p data-testid="pokemon-name">{name}</p>
           <p data-testid="pokemon-type">{`${type}`}</p>
@@ -22,12 +22,13 @@ class Pokemon extends React.Component {
           </p>
           {showDetailsLink && <Link to={ `/pokemon/${id}` }>More details</Link>}
         </div>
-        <img src={ `${image}` } alt={ `${name} sprite` } />
+        <img src={ `${image}` } alt={ `${name} sprite` } data-testid="pokemon-image" />
         {isFavorite && (
           <img
             className="favorite-icon"
             src={ `/star-icon.svg` }
             alt={ `${name} is marked as favorite` }
+            data-testid="pokemon-favorite"
           />
         )}
       </div>
