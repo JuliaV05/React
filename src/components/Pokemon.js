@@ -22,13 +22,12 @@ class Pokemon extends React.Component {
           </p>
           {showDetailsLink && <Link to={ `/pokemon/${id}` }>More details</Link>}
         </div>
-        <img src={ `${image}` } alt={ `${name} sprite` } data-testid="pokemon-image" />
+        <img src={ `${image}` } alt={ `${name} sprite` } />
         {isFavorite && (
           <img
             className="favorite-icon"
             src={ `/star-icon.svg` }
             alt={ `${name} is marked as favorite` }
-            data-testid="pokemon-favorite"
           />
         )}
       </div>

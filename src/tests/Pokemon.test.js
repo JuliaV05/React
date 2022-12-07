@@ -21,7 +21,7 @@ describe('Testing Pokemon component', () => {
         value: '6.0',
         measurementUnit: 'kg',
       } });
-    const pokemonImage = screen.getByTestId('pokemon-image');
+    const pokemonImage = screen.getByRole('img', { name: /sprite/i });
 
     expect(pokemonImage).toHaveAttribute('src', 'https://cdn2.bulbagarden.net/upload/b/b2/Spr_5b_025_m.png');
     expect(pokemonImage).toHaveAttribute('alt', 'Pikachu sprite');
@@ -72,7 +72,7 @@ describe('Testing Pokemon component', () => {
       pokemonList
     />);
 
-    const pokemonFavorite = screen.getByTestId('pokemon-favorite');
+    const pokemonFavorite = screen.getByRole('img', { name: /is marked as favorite/i });
 
     expect(pokemonFavorite).toHaveAttribute('src', '/star-icon.svg');
     expect(pokemonFavorite).toHaveAttribute('alt', 'Pikachu is marked as favorite');
